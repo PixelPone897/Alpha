@@ -221,10 +221,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 275087610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db60cffbdca982f46aff795fddeb1435, type: 3}
+  m_Script: {fileID: 11500000, guid: 61fbbba397b28d54fba38b0f4b8125a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Owner>k__BackingField: {fileID: 2060365890}
+  <Owner>k__BackingField: {fileID: 0}
+  costOfMovement: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +419,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060365891}
-  - component: {fileID: 2060365893}
   - component: {fileID: 2060365890}
   - component: {fileID: 2060365889}
   - component: {fileID: 2060365888}
@@ -467,7 +467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b7f01c0db66c348aee55cb31737348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <BaseActorSpecial>k__BackingField: {fileID: 11400000, guid: 76a31cb4da6806d4a8a854d343fa8440, type: 2}
+  <ActorName>k__BackingField: Littlepip
+  actorPast: {fileID: 0}
+  <Gender>k__BackingField: 1
   <InitialCombatEvent>k__BackingField: {fileID: 1216908708}
   <BattleGridPosition>k__BackingField: {x: 3, y: 3}
 --- !u!4 &2060365891
@@ -500,21 +502,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfCaps: 0
---- !u!114 &2060365893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060365887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b929517033c6f54986f9a285c50c681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ActorName>k__BackingField: Littlepip
-  actorPast: {fileID: 0}
-  <Gender>k__BackingField: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
