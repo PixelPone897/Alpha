@@ -1,7 +1,9 @@
 using Scripts.Actors;
 using Scripts.CombatStates.SelectionAreas;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static Scripts.Constants;
 
 namespace Scripts.CombatStates
 {
@@ -49,13 +51,20 @@ namespace Scripts.CombatStates
         /// </remarks>
         private List<Vector2Int> selectMovements;
 
-        private BattleGrid battleGrid;
+        [SerializeField]
+        private List<Limb_Type> requiredLimbTypes;
 
+        private BattleGrid battleGrid;
         private ActorStatus actorStatus;
 
         public void Awake()
         {
             selectionBounds = GetComponent<SelectionAreaBase>();
+        }
+
+        public void Start()
+        {
+            actorStatus = this.Owner.gameObject.GetComponent<ActorStatus>();
         }
 
         public override void StartState(BattleManager battleManager)
@@ -65,12 +74,12 @@ namespace Scripts.CombatStates
             costOfCurrentPath = 0;
             selectMovements = new List<Vector2Int>();
 
-            this.battleGrid = battleManager.BattleGridProperty;
+            battleGrid = battleManager.BattleGridProperty;
             startOfCurrentPath = this.Owner.BattleGridPosition;
             centerPosition = startOfCurrentPath;
             hoverPosition = startOfCurrentPath;
+
             selectionBounds.UpdateSelectionArea(centerPosition);
-            actorStatus = this.Owner.gameObject.GetComponent<ActorStatus>();
 
             Debug.Log("MoveSelection's StartState method Ran!");
             PlayerInput.Instance.OnMoveAction += PlayerInput_OnMoveAction;
@@ -100,6 +109,31 @@ namespace Scripts.CombatStates
         public override bool IsFinished()
         {
             return false;
+        }
+
+        public override bool CanPerform()
+        {
+            List<ActorLimb> copy = new List<ActorLimb>(actorStatus.ActorLimbs);
+
+            foreach(Limb_Type limbType in requiredLimbTypes)
+            {
+                // Need to check 1- if limb of the required type exists
+                // and 2- the limb is not crippled
+                ActorLimb foundLimb = actorStatus.ActorLimbs.FirstOrDefault(testingLimb =>
+                {
+                    return testingLimb.LimbType == limbType && testingLimb.CrippleStatus == Cripple_Status.OK;
+                });
+
+                if(foundLimb == null)
+                {
+                    return false;
+                }
+
+                copy.Remove(foundLimb);
+            }
+
+            return true;
+
         }
 
         private int GetCostOfPathMovement(Vector2Int movement)

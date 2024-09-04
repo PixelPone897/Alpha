@@ -224,8 +224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fbbba397b28d54fba38b0f4b8125a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Owner>k__BackingField: {fileID: 0}
+  <Owner>k__BackingField: {fileID: 2060365890}
   costOfMovement: 0
+  requiredLimbTypes: 02000000030000000400000005000000
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Owner>k__BackingField: {fileID: 2060365890}
-  moveSelection: {fileID: 0}
+  moveSelection: {fileID: 275087614}
 --- !u!4 &1216908709
 Transform:
   m_ObjectHideFlags: 0
@@ -442,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1ba4c28f4c0624baad55391c2efe61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorLimbs: []
+  <ActorLimbs>k__BackingField: []
 --- !u!114 &2060365889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +471,7 @@ MonoBehaviour:
   <ActorName>k__BackingField: Littlepip
   actorPast: {fileID: 0}
   <Gender>k__BackingField: 1
+  <BaseStats>k__BackingField: {fileID: 11400000, guid: 76a31cb4da6806d4a8a854d343fa8440, type: 2}
   <InitialCombatEvent>k__BackingField: {fileID: 1216908708}
   <BattleGridPosition>k__BackingField: {x: 3, y: 3}
 --- !u!4 &2060365891

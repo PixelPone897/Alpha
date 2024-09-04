@@ -18,6 +18,7 @@ namespace Scripts.Actors
         [field: SerializeField]
         public Actor_Gender Gender { get; private set; } = Actor_Gender.MALE;
 
+        [field: SerializeField]
         public BaseActorStats BaseStats { get; private set; }
 
         //Any Battle Specific variables of an Actor- if there are too many, this will

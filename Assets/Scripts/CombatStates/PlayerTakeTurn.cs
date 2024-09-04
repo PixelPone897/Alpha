@@ -134,8 +134,11 @@ namespace Scripts.CombatStates
             Debug.Log(test);
             if (test == "Move")
             {
-                battleManager.AddSubstate(this.Owner, moveSelection);
-                battleManager.NextSubstate();
+                if(moveSelection.CanPerform())
+                {
+                    battleManager.AddSubstate(this.Owner, moveSelection);
+                    battleManager.NextSubstate();
+                }
             }
         }
     }

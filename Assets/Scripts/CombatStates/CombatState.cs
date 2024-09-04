@@ -58,7 +58,7 @@ namespace Scripts.CombatStates
         protected BattleManager battleManager;
 
         /// <summary>
-        /// Determines if this CombatState can be performed or not- Are the proper
+        /// Determines if this CombatState can be performed or not- Are the minimum
         /// conditions in place for this CombatState to start and run?
         /// </summary>
         /// <returns>

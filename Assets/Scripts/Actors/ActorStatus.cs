@@ -62,13 +62,12 @@ namespace Scripts.Actors
         public int ResistanceCold { get; private set; }
         public int ResistanceHeat { get; private set; }
         public int ResistanceElectricity { get; private set; }
-
-        [SerializeField]
-        private List<ActorLimb> actorLimbs;
+        [field: SerializeField]
+        public List<ActorLimb> ActorLimbs { get; private set; }
 
         private void Awake()
         {
-            actorLimbs = new List<ActorLimb>();
+            ActorLimbs = new List<ActorLimb>();
         }
 
         // Use this for initialization
@@ -76,7 +75,7 @@ namespace Scripts.Actors
         {
             actorSpecial = GetComponent<ActorSpecial>();
             baseActorStats = actorSpecial.BaseStats;
-            actorLimbs = baseActorStats.ActorLimbs;
+            ActorLimbs = baseActorStats.ActorLimbs;
             SetStats();
         }
 
